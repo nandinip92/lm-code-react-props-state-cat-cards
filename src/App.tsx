@@ -5,6 +5,8 @@ import Footer from "./components/footer";
 import Cat from "./data/cat";
 import { useState } from "react";
 
+import CatCard from "./components/cat_card";
+
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!
   //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
@@ -83,7 +85,7 @@ function App(): JSX.Element {
     },
   ]);
 
-  console.log("Our pretties 😻: ", cats);
+  //console.log("Our pretties 😻: ", cats);
   return (
     <>
       <Navbar />
