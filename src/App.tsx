@@ -3,8 +3,12 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import CatCard from "./components/cat_card";
+import DogCard from "./components/dogs_card";
 
 import Cat from "./data/cat";
+import Dogs from "./data/dog";
+import dogData from "./data/dog-data";
+
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -94,16 +98,21 @@ function App(): JSX.Element {
 
   catData.forEach((cat) => (cat.id = uuidv4()));
   //console.log("--->", catData);
+
   //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
   const [cats, setCats] = useState<Array<Cat>>(catData);
 
   //console.log("Our pretties 😻: ", cats);
   const catCount = cats.length;
   //console.log("catCount --->", catCount);
+
+  const [dogs, setDogs] = useState<Array<Dogs>>(dogData);
+  const dogCount = dogs.length;
+
   return (
     <>
       <Navbar />
-      <Header catCount={catCount} />
+      <Header catCount={catCount} dogCount={dogCount} />
 
       <main>
         <div className="cards__wrapper">
@@ -117,6 +126,9 @@ function App(): JSX.Element {
               favFoods={cat.favFoods}
               birthYear={cat.birthYear}
             />} */}
+          {dogs.map((dog, index) => (
+            <DogCard key={index} dogObject={dog} dogIndex={index} />
+          ))}
         </div>
       </main>
 
