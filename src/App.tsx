@@ -86,10 +86,12 @@ function App(): JSX.Element {
   ]);
 
   //console.log("Our pretties 😻: ", cats);
+  const catCount = cats.length;
+  //console.log("catCount --->", catCount);
   return (
     <>
       <Navbar />
-      <Header />
+      <Header catCount={catCount} />
 
       <main>
         <div className="cards__wrapper">
