@@ -2,15 +2,16 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import CatCard from "./components/cat_card";
+
 import Cat from "./data/cat";
 import { useState } from "react";
-
-import CatCard from "./components/cat_card";
+import { v4 as uuidv4 } from "uuid";
 
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!
-  //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
-  const [cats, setCats] = useState<Array<Cat>>([
+
+  const catData: Array<Cat> = [
     {
       name: "Little Miss Purrfect",
       species: "Cat",
@@ -89,7 +90,12 @@ function App(): JSX.Element {
       favFoods: ["fish, rum"],
       birthYear: 2016,
     },
-  ]);
+  ];
+
+  catData.forEach((cat) => (cat.id = uuidv4()));
+  //console.log("--->", catData);
+  //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
+  const [cats, setCats] = useState<Array<Cat>>(catData);
 
   //console.log("Our pretties 😻: ", cats);
   const catCount = cats.length;
@@ -102,7 +108,7 @@ function App(): JSX.Element {
       <main>
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
-            <CatCard catObject={cat} catIndex={index} />
+            <CatCard key={cat.id} catObject={cat} catIndex={index} />
           ))}
           {/* {cats.map((cat) => (
             <CatCard

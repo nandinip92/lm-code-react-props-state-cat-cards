@@ -12,7 +12,6 @@ import cat9 from "../assets/images/cat9.jpg";
 import cat10 from "../assets/images/cat10.jpg";
 import cat11 from "../assets/images/cat11.jpg";
 import cat12 from "../assets/images/cat12.jpg";
-import { isPropertySignature } from "typescript";
 
 const images = [
   {
@@ -119,7 +118,7 @@ interface CatCardProps {
 const CatCard: React.FC<CatCardProps> = ({ catObject, catIndex }) => {
   console.log(
     "CatCard receiving props from App?! Come in App?! 😸 Props received are: ",
-    isPropertySignature
+    { catObject, catIndex }
   );
 
   const { name, species, favFoods, birthYear } = catObject;
