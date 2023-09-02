@@ -21,18 +21,22 @@ function App(): JSX.Element {
   catData.forEach((cat, index) => {
     const id = uuidv4();
     cat.id = id;
+    if (images[index] !== undefined) images[index].id = id;
   });
-  //console.log("--->", catData);
 
   //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
   const [cats, setCats] = useState<Array<Cat>>(catData);
 
   //console.log("Our pretties 😻: ", cats);
   const catCount = cats.length;
-  //console.log("catCount --->", catCount);
 
   const [dogs, setDogs] = useState<Array<Dogs>>(dogData);
   const dogCount = dogs.length;
+
+  // const image = cats.map((cat, index) =>
+  //   images.find((image) => image.id === cat.id)
+  // );
+  // console.log("IMAGE--->", image);
 
   return (
     <>
@@ -42,16 +46,25 @@ function App(): JSX.Element {
       <main>
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
-            <Card key={cat.id} animalObject={cat} index={index} />
-          ))}
-
-          {dogs.map((dog, index) => (
             <Card
-              key={index}
-              animalObject={dog}
-              index={cats.length - 1 + index}
+              key={cat.id}
+              animalObject={cat}
+              index={index}
+              image={images.find((image) => image.id === cat.id)}
             />
           ))}
+
+          {
+            //using lazy way to create Keys for 'dogs'
+            dogs.map((dog, index) => (
+              <Card
+                key={index}
+                animalObject={dog}
+                index={cats.length - 1 + index} //dog images start after cat images
+                image={undefined}
+              />
+            ))
+          }
 
           {/* {cats.map((cat, index) => (
             <CatCard key={cat.id} catObject={cat} catIndex={index} />

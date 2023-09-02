@@ -1,3 +1,4 @@
+import ImageInterface from "./image-interface";
 import cat1 from "../assets/images/cat1.jpg";
 import cat2 from "../assets/images/cat2.jpg";
 import cat3 from "../assets/images/cat3.jpg";
@@ -11,7 +12,7 @@ import cat10 from "../assets/images/cat10.jpg";
 import cat11 from "../assets/images/cat11.jpg";
 import cat12 from "../assets/images/cat12.jpg";
 
-const images = [
+const images: Array<ImageInterface> = [
   {
     image: cat1,
     altText: "Describe this cat!",
