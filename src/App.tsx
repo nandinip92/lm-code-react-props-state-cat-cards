@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 //import CatCard from "./components/cat_card";
 //import DogCard from "./components/dogs_card";
 import Card from "./components/card";
+import UserInputField from "./components/input-field";
 
 import Cat from "./data/cat";
 import catData from "./data/cat-data";
@@ -73,40 +74,25 @@ function App(): JSX.Element {
       <main>
         <div className="form-container">
           <div className="user-input-form">
-            <label htmlFor="animal_name">Name :</label>
-            <input
-              id="animal_name"
+            <UserInputField
+              name="Name"
               value={animalName}
-              onChange={(event) => {
-                setAnimalName(event.target.value);
-              }}
+              onValueChange={setAnimalName}
             />
-
-            <label htmlFor="species">Species :</label>
-            <input
-              id="species"
+            <UserInputField
+              name="species"
               value={species}
-              onChange={(event) => {
-                setSpecies(event.target.value);
-              }}
+              onValueChange={setSpecies}
             />
-
-            <label htmlFor="favFoods">Favourite Foods :</label>
-            <input
-              id="favFoods"
+            <UserInputField
+              name="favFoods"
               value={favFoods}
-              onChange={(event) => {
-                setFavFoods(event.target.value);
-              }}
+              onValueChange={setFavFoods}
             />
-
-            <label htmlFor="birthYear">Birth Year :</label>
-            <input
-              id="birthYear"
+            <UserInputField
+              name="birthYear"
               value={birthYear}
-              onChange={(event) => {
-                setBirthYear(event.target.value);
-              }}
+              onValueChange={setBirthYear}
             />
 
             <input type="submit" title="Submit" onClick={addAnimalData} />
