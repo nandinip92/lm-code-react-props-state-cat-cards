@@ -80,17 +80,17 @@ function App(): JSX.Element {
               onValueChange={setAnimalName}
             />
             <UserInputField
-              name="species"
+              name="Species"
               value={species}
               onValueChange={setSpecies}
             />
             <UserInputField
-              name="favFoods"
+              name="Favourite Foods"
               value={favFoods}
               onValueChange={setFavFoods}
             />
             <UserInputField
-              name="birthYear"
+              name="Birth Year"
               value={birthYear}
               onValueChange={setBirthYear}
             />
