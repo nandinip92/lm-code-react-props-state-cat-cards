@@ -18,16 +18,6 @@ import { v4 as uuidv4 } from "uuid";
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!
 
-  catData.forEach((cat, index) => {
-    const id = uuidv4();
-    cat.id = id;
-    if (images[index] !== undefined) images[index].id = id;
-  });
-  // const image = cats.map((cat, index) =>
-  //   images.find((image) => image.id === cat.id)
-  // );
-  // console.log("IMAGE--->", image);
-
   //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
   const [cats, setCats] = useState<Array<Cat>>(catData);
   const catCount = cats.length;
@@ -43,9 +33,31 @@ function App(): JSX.Element {
   const [animalName, setAnimalName] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
   const [favFoods, setFavFoods] = useState<string>("");
-  const [birthYear, setBirthYear] = useState("");
+  const [birthYear, setBirthYear] = useState<string>("");
 
-  const addAnimalData = () => {};
+  const addAnimalData = () => {
+    const newAnimal = {
+      name: animalName,
+      species: species,
+      favFoods: [favFoods],
+      birthYear: parseInt(birthYear),
+    };
+    setCats([...cats, newAnimal]);
+    cleatTextFields();
+  };
+
+  const cleatTextFields = () => {
+    setAnimalName("");
+    setSpecies("");
+    setFavFoods("");
+    setBirthYear("");
+  };
+
+  cats.forEach((cat, index) => {
+    const id = uuidv4();
+    cat.id = id;
+    if (images[index] !== undefined) images[index].id = id;
+  });
 
   return (
     <>
@@ -63,7 +75,6 @@ function App(): JSX.Element {
                 setAnimalName(event.target.value);
               }}
             />
-            <p>{animalName}</p>
 
             <label htmlFor="species">Species :</label>
             <input
@@ -73,7 +84,6 @@ function App(): JSX.Element {
                 setSpecies(event.target.value);
               }}
             />
-            <p>{species}</p>
 
             <label htmlFor="favFoods">Favourite Foods :</label>
             <input
@@ -83,7 +93,6 @@ function App(): JSX.Element {
                 setFavFoods(event.target.value);
               }}
             />
-            <p>{favFoods}</p>
 
             <label htmlFor="birthYear">Birth Year :</label>
             <input
@@ -93,7 +102,6 @@ function App(): JSX.Element {
                 setBirthYear(event.target.value);
               }}
             />
-            <p>{birthYear}</p>
 
             <input type="submit" title="Submit" onClick={addAnimalData} />
           </div>

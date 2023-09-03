@@ -191,10 +191,10 @@ input[type="submit"] {
   padding: 0px 20px;
   font-family: "Quicksand", sans-serif;
   font-weight: 800;
-  font-size: 18px;
+  /* font-size: 18px; */
   color: #fff;
   line-height: 40px;
-  text-align: center;
+  /* text-align: center; */
   background-color: var(--pink-brown);
   border: 1px var(--pink-brown) solid;
   opacity: 1;
