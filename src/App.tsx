@@ -40,10 +40,11 @@ function App(): JSX.Element {
 
   const addAnimalData = () => {
     const animal_species = species.toUpperCase();
+    const favourite_foods = favFoods.split(",");
     const newAnimal = {
       name: animalName,
       species: species,
-      favFoods: [favFoods],
+      favFoods: favourite_foods,
       birthYear: parseInt(birthYear),
     };
     addAnimalToSpecies(animal_species, newAnimal);
