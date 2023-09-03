@@ -14,6 +14,7 @@ import images from "./data/images-data";
 
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Dog from "./data/dog";
 
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!
@@ -25,24 +26,27 @@ function App(): JSX.Element {
   const [dogs, setDogs] = useState<Array<Dogs>>(dogData);
   const dogCount = dogs.length;
 
-  /*name: "Little Miss Purrfect",
-    species: "Cat",
-    favFoods: ["wet food", "dry food"],
-    birthYear: 2016*/
-
+  /*Uset Input Form code START*/
   const [animalName, setAnimalName] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
   const [favFoods, setFavFoods] = useState<string>("");
   const [birthYear, setBirthYear] = useState<string>("");
 
+  //Adding tha nimal data to its corresponding state
+  const addAnimalToSpecies = (animal_species: string, newAnimal: Cat | Dog) => {
+    if (animal_species === "CAT") setCats([...cats, newAnimal]);
+    if (animal_species === "DOG") setDogs([...dogs, newAnimal]);
+  };
+
   const addAnimalData = () => {
+    const animal_species = species.toUpperCase();
     const newAnimal = {
       name: animalName,
       species: species,
       favFoods: [favFoods],
       birthYear: parseInt(birthYear),
     };
-    setCats([...cats, newAnimal]);
+    addAnimalToSpecies(animal_species, newAnimal);
     cleatTextFields();
   };
 
@@ -52,6 +56,7 @@ function App(): JSX.Element {
     setFavFoods("");
     setBirthYear("");
   };
+  /*User Input Form Code END*/
 
   cats.forEach((cat, index) => {
     const id = uuidv4();
