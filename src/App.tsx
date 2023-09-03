@@ -2,8 +2,8 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import CatCard from "./components/cat_card";
-import DogCard from "./components/dogs_card";
+//import CatCard from "./components/cat_card";
+//import DogCard from "./components/dogs_card";
 import Card from "./components/card";
 
 import Cat from "./data/cat";
@@ -23,20 +23,29 @@ function App(): JSX.Element {
     cat.id = id;
     if (images[index] !== undefined) images[index].id = id;
   });
+  // const image = cats.map((cat, index) =>
+  //   images.find((image) => image.id === cat.id)
+  // );
+  // console.log("IMAGE--->", image);
 
   //const [ data, setData ] = useState(/*our state/data we want React to watch goes here*/)
   const [cats, setCats] = useState<Array<Cat>>(catData);
-
-  //console.log("Our pretties 😻: ", cats);
   const catCount = cats.length;
 
   const [dogs, setDogs] = useState<Array<Dogs>>(dogData);
   const dogCount = dogs.length;
 
-  // const image = cats.map((cat, index) =>
-  //   images.find((image) => image.id === cat.id)
-  // );
-  // console.log("IMAGE--->", image);
+  /*name: "Little Miss Purrfect",
+    species: "Cat",
+    favFoods: ["wet food", "dry food"],
+    birthYear: 2016*/
+
+  const [animalName, setAnimalName] = useState<string>("");
+  const [species, setSpecies] = useState<string>("");
+  const [favFoods, setFavFoods] = useState<string>("");
+  const [birthYear, setBirthYear] = useState("");
+
+  const addAnimalData = () => {};
 
   return (
     <>
@@ -44,6 +53,51 @@ function App(): JSX.Element {
       <Header catCount={catCount} dogCount={dogCount} />
 
       <main>
+        <div className="form-container">
+          <div className="user-input-form">
+            <label htmlFor="animal_name">Name :</label>
+            <input
+              id="animal_name"
+              value={animalName}
+              onChange={(event) => {
+                setAnimalName(event.target.value);
+              }}
+            />
+            <p>{animalName}</p>
+
+            <label htmlFor="species">Species :</label>
+            <input
+              id="species"
+              value={species}
+              onChange={(event) => {
+                setSpecies(event.target.value);
+              }}
+            />
+            <p>{species}</p>
+
+            <label htmlFor="favFoods">Favourite Foods :</label>
+            <input
+              id="favFoods"
+              value={favFoods}
+              onChange={(event) => {
+                setFavFoods(event.target.value);
+              }}
+            />
+            <p>{favFoods}</p>
+
+            <label htmlFor="birthYear">Birth Year :</label>
+            <input
+              id="birthYear"
+              value={birthYear}
+              onChange={(event) => {
+                setBirthYear(event.target.value);
+              }}
+            />
+            <p>{birthYear}</p>
+
+            <input type="submit" title="Submit" onClick={addAnimalData} />
+          </div>
+        </div>
         <div className="cards__wrapper">
           {cats.map((cat, index) => (
             <Card
