@@ -39,7 +39,11 @@ function App(): JSX.Element {
   };
 
   const addAnimalData = () => {
-    const animal_species = species.toUpperCase();
+    let animal_species = "";
+    //As of now considering only two species eithre Cat or Dog
+    if (species.toUpperCase().includes("CAT")) animal_species = "CAT";
+    if (species.toUpperCase().includes("DOG")) animal_species = "DOG";
+
     const favourite_foods = favFoods.split(",");
     const newAnimal = {
       name: animalName,
