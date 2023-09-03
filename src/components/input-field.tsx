@@ -13,7 +13,7 @@ const UserInputField: React.FC<UserInputFieldProps> = ({
   const id = Object.keys({ value }).toString();
   return (
     <>
-      <label htmlFor={id}>{name}</label>
+      <label htmlFor={id}>{name} :</label>
       <input
         value={value}
         onChange={(event) => onValueChange(event.target.value)}
