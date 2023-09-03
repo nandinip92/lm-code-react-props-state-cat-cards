@@ -9,7 +9,6 @@ import UserInputField from "./components/input-field";
 
 import Cat from "./data/cat";
 import catData from "./data/cat-data";
-import Dogs from "./data/dog";
 import dogData from "./data/dog-data";
 import images from "./data/images-data";
 
@@ -24,16 +23,16 @@ function App(): JSX.Element {
   const [cats, setCats] = useState<Array<Cat>>(catData);
   const catCount = cats.length;
 
-  const [dogs, setDogs] = useState<Array<Dogs>>(dogData);
+  const [dogs, setDogs] = useState<Array<Dog>>(dogData);
   const dogCount = dogs.length;
 
-  /*Uset Input Form code START*/
+  /*User Input Form code START*/
   const [animalName, setAnimalName] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
   const [favFoods, setFavFoods] = useState<string>("");
   const [birthYear, setBirthYear] = useState<string>("");
 
-  //Adding tha nimal data to its corresponding state
+  //Adding tha animal data to its corresponding state
   const addAnimalToSpecies = (animal_species: string, newAnimal: Cat | Dog) => {
     if (animal_species === "CAT") setCats([...cats, newAnimal]);
     if (animal_species === "DOG") setDogs([...dogs, newAnimal]);
