@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({ animalObject, index, image }) => {
       {/* only render an image if there's a corresponding entry in our images array*/}
       {index < images.length && <AnimalImage animalImage={image} />}
       <p className="card__text">Species: {species}</p>
-      <p className="card__text">Favourite Food(s): {favFoods}</p>
+      <p className="card__text">Favourite Food(s): {favFoods.join(", ")}</p>
       <p className="card__text">Birth Year: {birthYear}</p>
     </div>
   );
