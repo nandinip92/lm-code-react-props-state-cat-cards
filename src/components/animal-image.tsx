@@ -1,12 +1,3 @@
-// interface ImageProps {
-//   image: string;
-//   altText: string;
-//   licenceType: string;
-//   licenceUrl: string;
-//   attributionName?: string;
-//   attributionUrl?: string;
-// }
-
 import ImageInterface from "../data/image-interface";
 interface ImageProps {
   animalImage: ImageInterface | undefined;

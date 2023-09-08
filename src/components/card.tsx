@@ -33,12 +33,4 @@ const Card: React.FC<CardProps> = ({ animalObject, index, image }) => {
   );
 };
 
-// <AnimalImage
-//           image={images[index].image}
-//           altText={images[index].altText}
-//           licenceType={images[index].licenceType}
-//           licenceUrl={images[index].licenceUrl}
-//           attributionName={images[index].attributionName}
-//           attributionUrl={images[index].attributionUrl}
-//         />
 export default Card;
