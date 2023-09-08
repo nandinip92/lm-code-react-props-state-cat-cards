@@ -4,14 +4,6 @@ import Dog from "../data/dog";
 import AnimalImage from "./animal-image"; //Image component
 import ImageInterface from "../data/image-interface";
 
-// interface CardProps {
-//   name: string;
-//   species: string;
-//   favFoods: Array<string>;
-//   birthYear: number;
-//   catIndex: number;
-// }
-
 interface CardProps {
   animalObject: Cat | Dog;
   index: number;
