@@ -4,7 +4,6 @@ interface ImageProps {
 }
 
 const AnimalImage: React.FC<ImageProps> = ({ animalImage }) => {
-  //console.log("animal Image --->", animalImage);
   const image = animalImage?.image;
   const altText = animalImage?.altText;
   const licenceUrl = animalImage?.licenceUrl;
